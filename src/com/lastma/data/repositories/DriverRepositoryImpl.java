@@ -37,4 +37,24 @@ public class DriverRepositoryImpl implements DriverRepository {
             }
         }
     }
+
+    @Override
+    public void deleteAll() {
+        drivers.clear();
+    }
+
+    @Override
+    public boolean existsById(int id) {
+        for(Driver forEachDriverIn : drivers){
+            if(forEachDriverIn.getId() == id){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public List<Driver> findAll() {
+        return drivers;
+    }
 }

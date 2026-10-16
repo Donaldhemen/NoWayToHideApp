@@ -4,6 +4,8 @@ import com.lastma.data.models.Driver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DriverRepositoryImplTest {
@@ -56,24 +58,40 @@ class DriverRepositoryImplTest {
         assertEquals(0L,driverRepository.count());
     }
 
+    @Test
+    public void testThatWhenIAddTwoDrivers_andDeleteAllCountIsZero(){
+        assertEquals(0L,driverRepository.count());
+        Driver driverOne = new Driver();
+        Driver driverTwo = new Driver();
+        driverRepository.save(driverOne);
+        driverRepository.save(driverTwo);
+        driverRepository.deleteAll();
+        assertEquals(0L,driverRepository.count());
+    }
 
+    @Test
+    public void testThatIfDriverIdExists_ItIsTrue(){
+        driver.setId(1);
+        driverRepository.save(driver);
+        assertTrue(driverRepository.existsById(1));
+    }
 
+    @Test
+    public void testThatIfDriverIdDoesNotExist_ItIsFalse(){
+        driver.setId(1);
+        driverRepository.save(driver);
+        assertFalse(driverRepository.existsById(2));
+    }
 
+    @Test
+    public void testThatIGetAllDriversWhenIFindAll(){
+        assertEquals(0L,driverRepository.count());
+        Driver driverOne = new Driver();
+        Driver driverTwo = new Driver();
+        driverRepository.save(driverOne);
+        driverRepository.save(driverTwo);
 
-
-
-
-
-
-
-
-//    @Test
-//    public void testThatWhenIAddOneDriverAndDeleteOneDriver_CountIsZero() {
-//        assertEquals(0L,driverRepository.count());
-//        Driver driverOne = new Driver();
-//        driverRepository.save(driverOne);
-//        assertEquals(1L,driverRepository.count());
-//        driverRepository.del()
-//    }
-
+        List<Driver> drivers = driverRepository.findAll();
+        assertEquals(2L, drivers.size());
+    }
 }
