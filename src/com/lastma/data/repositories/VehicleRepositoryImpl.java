@@ -19,19 +19,19 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     }
 
     @Override
-    public Vehicle findById(String id) {
+    public Vehicle findByPlateNumber(String plateNumber) {
         for(Vehicle forEachVehicleIn : vehicles){
-            if(forEachVehicleIn.getId() == id){
+            if(java.util.Objects.equals(forEachVehicleIn.getPlateNumber(), plateNumber)){
                 return forEachVehicleIn;
             }
         }
-        throw new IllegalArgumentException("Vehicle with id " + id + " not found");
+        throw new IllegalArgumentException("Vehicle with plate number " + plateNumber + " not found");
     }
 
     @Override
-    public void del(String id) {
+    public void del(String plateNumber) {
         for(Vehicle vehicle : vehicles){
-            if(vehicle.getId() == id){
+            if(java.util.Objects.equals(vehicle.getPlateNumber(), plateNumber)){
                 vehicles.remove(vehicle);
                 break;
             }
@@ -44,9 +44,9 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     }
 
     @Override
-    public boolean existsById(String id) {
+    public boolean existsByPlateNumber(String plateNumber) {
         for(Vehicle forEachVehicleIn : vehicles){
-            if(forEachVehicleIn.getId() == id){
+            if(java.util.Objects.equals(forEachVehicleIn.getPlateNumber(), plateNumber)){
                 return true;
             }
         }
@@ -58,4 +58,3 @@ public class VehicleRepositoryImpl implements VehicleRepository {
         return List.copyOf(vehicles);
     }
 }
-
