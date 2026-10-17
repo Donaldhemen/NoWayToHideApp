@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OfficerRepositoryImpl implements OfficerRepository {
-    private List<Officer> officers = new ArrayList<>();
+    private static List<Officer> officers = new ArrayList<>();
 
     @Override
     public long count() {

@@ -6,6 +6,7 @@ public class Driver {
     private String email;
     private int id;
     private String carPlateNumber;
+    private String password;
 
     public String getFullName() {
         return fullName;
@@ -40,4 +41,11 @@ public class Driver {
     }
 
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

@@ -4,6 +4,7 @@ public class Officer {
     private String fullName;
     private String email;
     private int id;
+    private String password;
 
     public String getFullName() {
         return fullName;
@@ -30,5 +31,11 @@ public class Officer {
     }
 
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public String getPassword() {
+        return password;
+    }
 }

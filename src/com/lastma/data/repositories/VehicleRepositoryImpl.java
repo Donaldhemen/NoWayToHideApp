@@ -21,7 +21,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public Vehicle findByPlateNumber(String plateNumber) {
         for(Vehicle forEachVehicleIn : vehicles){
-            if(java.util.Objects.equals(forEachVehicleIn.getPlateNumber(), plateNumber)){
+            if(forEachVehicleIn.getPlateNumber() == plateNumber){
                 return forEachVehicleIn;
             }
         }
@@ -31,7 +31,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public void del(String plateNumber) {
         for(Vehicle vehicle : vehicles){
-            if(java.util.Objects.equals(vehicle.getPlateNumber(), plateNumber)){
+            if(vehicle.getPlateNumber() == plateNumber){
                 vehicles.remove(vehicle);
                 break;
             }
@@ -46,7 +46,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public boolean existsByPlateNumber(String plateNumber) {
         for(Vehicle forEachVehicleIn : vehicles){
-            if(java.util.Objects.equals(forEachVehicleIn.getPlateNumber(), plateNumber)){
+            if(forEachVehicleIn.getPlateNumber() == plateNumber){
                 return true;
             }
         }
