@@ -21,7 +21,7 @@ class DriverServiceImplTest {
     @Test
     void testThatAfterRegisteringDriver_driverCountIsOne() {
         assertEquals(0L, driverRepository.count());
-        driverService.register("Donald Hemen", "emali@example.com","password");
+        driverService.register("Donald Hemen", "emali@example.com");
         assertEquals(1L, driverRepository.count());
     }
 }

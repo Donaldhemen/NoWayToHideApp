@@ -21,7 +21,7 @@ class OfficerServiceImplTest {
     @Test
     void testThatAfterRegisteringOfficer_officerCountIsOne() {
         assertEquals(0L, officerRepository.count());
-        officerService.register("Donald Hemen", "emali@example.com","password");
+        officerService.register("Donald Hemen", "emali@example.com");
         assertEquals(1L, officerRepository.count());
     }
 }

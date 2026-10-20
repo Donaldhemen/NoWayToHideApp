@@ -9,11 +9,10 @@ public class DriverServiceImpl implements DriverService{
     private DriverRepository driverRepository = new DriverRepositoryImpl();
 
     @Override
-    public void register(String fullName, String mail, String password) {
+    public void register(String fullName, String mail) {
         Driver newDriver = new Driver();
         newDriver.setFullName(fullName);
         newDriver.setEmail(mail);
-        newDriver.setPassword(password);
         driverRepository.save(newDriver);
     }
 }

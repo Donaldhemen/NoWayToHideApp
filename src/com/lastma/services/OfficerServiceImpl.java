@@ -9,11 +9,10 @@ public class OfficerServiceImpl implements OfficerService{
     private OfficerRepository officerRepository = new OfficerRepositoryImpl();
 
     @Override
-    public void register(String fullName, String mail, String password) {
+    public void register(String fullName, String mail) {
         Officer newOfficer = new Officer();
         newOfficer.setFullName(fullName);
         newOfficer.setEmail(mail);
-        newOfficer.setPassword(password);
         officerRepository.save(newOfficer);
     }
 }

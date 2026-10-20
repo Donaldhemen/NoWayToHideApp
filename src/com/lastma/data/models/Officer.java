@@ -4,7 +4,8 @@ public class Officer {
     private String fullName;
     private String email;
     private int id;
-    private String password;
+    private String officerNumber;
+    private boolean active;
 
     public String getFullName() {
         return fullName;
@@ -30,12 +31,19 @@ public class Officer {
         this.id = id;
     }
 
-
-    public void setPassword(String password) {
-        this.password = password;
+    public String getOfficerNumber() {
+        return officerNumber;
     }
 
-    public String getPassword() {
-        return password;
+    public void setOfficerNumber(String officerNumber) {
+        this.officerNumber = officerNumber;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

@@ -3,10 +3,37 @@ package com.lastma.data.models;
 import java.time.Year;
 
 public class Vehicle {
+    private String id;
     private String plateNumber;
     private String brand;
     private String model;
+    private String colour;
     private Year year;
+    private String driverId;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    public String getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(String driverId) {
+        this.driverId = driverId;
+    }
 
     public String getPlateNumber() {
         return plateNumber;
@@ -39,6 +66,7 @@ public class Vehicle {
     public void setYear(Year year) {
         this.year = year;
     }
+
 
 
 }

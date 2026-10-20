@@ -1,5 +1,5 @@
 package com.lastma.services;
 
 public interface DriverService {
-    void register(String fullName, String mail, String password);
+    void register(String fullName, String mail);
 }
