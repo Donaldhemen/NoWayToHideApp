@@ -46,7 +46,7 @@ public class TicketRepositoryImpl implements TicketRepository {
     @Override
     public boolean existsById(String id) {
         for(Ticket forEachTicketIn : tickets){
-            if(forEachTicketIn.getId() == id){
+            if(id.equals(forEachTicketIn.getId())){
                 return true;
             }
         }
