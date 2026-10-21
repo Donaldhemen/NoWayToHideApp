@@ -23,12 +23,13 @@ public class OfficerServiceMapper {
 
     public static Officer map(RegisterOfficerRequest officerRequest){
         Officer officer = new Officer();
-        officer.setId(UUID.randomUUID().toString());
+        officer.setId(officerRequest.getId());
         officer.setFullName(officerRequest.getFullName());
         officer.setEmail(officerRequest.getEmail());
         officer.setPhoneNumber(officerRequest.getPhoneNumber());
         return officer;
     }
+
 
     public static FindOfficerResponse mapFound(Officer  officer){
         FindOfficerResponse response = new FindOfficerResponse();

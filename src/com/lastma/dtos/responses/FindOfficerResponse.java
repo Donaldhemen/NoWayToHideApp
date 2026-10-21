@@ -2,9 +2,9 @@ package com.lastma.dtos.responses;
 
 public class FindOfficerResponse {
     private String fullName;
-    private String email;
+    private String officerNumber;
     private String id;
-    private String phoneNumber;
+    private boolean isActive;
 
     public String getFullName() {
         return fullName;
@@ -14,12 +14,12 @@ public class FindOfficerResponse {
         this.fullName = fullName;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getOfficerNumber() {
+        return officerNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setOfficerNumber(String officerNumber) {
+        this.officerNumber = officerNumber;
     }
 
     public String getId() {
@@ -30,11 +30,11 @@ public class FindOfficerResponse {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

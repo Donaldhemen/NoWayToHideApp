@@ -9,6 +9,7 @@ import com.lastma.dtos.responses.RegisterDriverResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DriverServiceMapper {
 
     public static RegisterDriverResponse mapRegistered(Driver Driver){
@@ -22,6 +23,7 @@ public class DriverServiceMapper {
 
     public static Driver map(RegisterDriverRequest driverRequest){
         Driver driver = new Driver();
+        driver.setId(driverRequest.getId());
         driver.setFullName(driverRequest.getFullName());
         driver.setEmail(driverRequest.getEmail());
         driver.setPhoneNumber(driverRequest.getPhoneNumber());
