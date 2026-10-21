@@ -12,7 +12,7 @@ public interface VehicleRepository {
 
     Vehicle findByPlateNumber(String plateNumber);
 
-    void del(String plateNumber);
+    void deleteById(String plateNumber);
 
     void deleteAll();
 

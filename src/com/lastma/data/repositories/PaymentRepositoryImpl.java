@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentRepositoryImpl implements PaymentRepository {
-    private List<Payment> payments = new ArrayList<>();
+    private static List<Payment> payments = new ArrayList<>();
 
     @Override
     public long count() {
@@ -21,7 +21,7 @@ public class PaymentRepositoryImpl implements PaymentRepository {
     @Override
     public Payment findById(String id) {
         for(Payment forEachPaymentIn : payments){
-            if(forEachPaymentIn.getId() == id){
+            if(forEachPaymentIn.getId().equals(id)){
                 return forEachPaymentIn;
             }
         }
@@ -29,9 +29,9 @@ public class PaymentRepositoryImpl implements PaymentRepository {
     }
 
     @Override
-    public void del(String id) {
+    public void deleteById(String id) {
         for(Payment payment : payments){
-            if(payment.getId() == id){
+            if(payment.getId().equals(id)){
                 payments.remove(payment);
                 break;
             }
@@ -46,7 +46,7 @@ public class PaymentRepositoryImpl implements PaymentRepository {
     @Override
     public boolean existsById(String id) {
         for(Payment forEachPaymentIn : payments){
-            if(id.equals(forEachPaymentIn.getId())){
+            if(forEachPaymentIn.getId().equals(id)){
                 return true;
             }
         }

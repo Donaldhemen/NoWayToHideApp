@@ -37,24 +37,24 @@ class OfficerRepositoryImplTest {
 
     @Test
     public void testThatWhenIFindById_OfficerIsFound() {
-        officer.setId(1);
+        officer.setId("1");
         officerRepository.save(officer);
-        assertEquals(officer,officerRepository.findById(1));
+        assertEquals(officer,officerRepository.findById("1"));
     }
 
     @Test
     public void testThatWhenIFindByIncorrectId_ErrorIsThrown() {
-        officer.setId(1);
+        officer.setId("1");
         officerRepository.save(officer);
-        assertThrows(IllegalArgumentException.class, () -> officerRepository.findById(6));
+        assertThrows(IllegalArgumentException.class, () -> officerRepository.findById("7"));
     }
 
     @Test
     public void testThatWhenIDeleteOfficerWithId_OfficerIsDeletedAndCountIsZero() {
-        officer.setId(1);
+        officer.setId("1");
         officerRepository.save(officer);
         assertEquals(1L,officerRepository.count());
-        officerRepository.del(1);
+        officerRepository.deleteById("1");
         assertEquals(0L,officerRepository.count());
     }
 
@@ -71,16 +71,16 @@ class OfficerRepositoryImplTest {
 
     @Test
     public void testThatIfOfficerIdExists_ItIsTrue(){
-        officer.setId(1);
+        officer.setId("1");
         officerRepository.save(officer);
-        assertTrue(officerRepository.existsById(1));
+        assertTrue(officerRepository.existsById("1"));
     }
 
     @Test
     public void testThatIfOfficerIdDoesNotExist_ItIsFalse(){
-        officer.setId(1);
+        officer.setId("1");
         officerRepository.save(officer);
-        assertFalse(officerRepository.existsById(2));
+        assertFalse(officerRepository.existsById("4"));
     }
 
     @Test

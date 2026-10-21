@@ -10,13 +10,13 @@ public interface DriverRepository {
 
     void save(Driver driver);
 
-    Driver findById(int id);
+    Driver findById(String id);
 
-    void del(int id);
+    void deleteById(String id);
 
     void deleteAll();
 
-    boolean existsById(int id);
+    boolean existsById(String id);
 
     List<Driver> findAll();
 

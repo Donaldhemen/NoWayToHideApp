@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketRepositoryImpl implements TicketRepository {
-    private List<Ticket> tickets = new ArrayList<>();
+    private static List<Ticket> tickets = new ArrayList<>();
 
     @Override
     public long count() {
@@ -21,7 +21,7 @@ public class TicketRepositoryImpl implements TicketRepository {
     @Override
     public Ticket findById(String id) {
         for(Ticket forEachTicketIn : tickets){
-            if(forEachTicketIn.getId() == id){
+            if(forEachTicketIn.getId().equals(id)){
                 return forEachTicketIn;
             }
         }
@@ -29,9 +29,9 @@ public class TicketRepositoryImpl implements TicketRepository {
     }
 
     @Override
-    public void del(String id) {
+    public void deleteById(String id) {
         for(Ticket ticket : tickets){
-            if(ticket.getId() == id){
+            if(ticket.getId().equals(id)){
                 tickets.remove(ticket);
                 break;
             }
@@ -46,7 +46,7 @@ public class TicketRepositoryImpl implements TicketRepository {
     @Override
     public boolean existsById(String id) {
         for(Ticket forEachTicketIn : tickets){
-            if(id.equals(forEachTicketIn.getId())){
+            if(forEachTicketIn.getId().equals(id)){
                 return true;
             }
         }

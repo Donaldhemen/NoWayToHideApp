@@ -54,7 +54,7 @@ class OffenceRepositoryImplTest {
         offence.setId("1");
         offenceRepository.save(offence);
         assertEquals(1L,offenceRepository.count());
-        offenceRepository.del("1");
+        offenceRepository.deleteById("1");
         assertEquals(0L,offenceRepository.count());
     }
 

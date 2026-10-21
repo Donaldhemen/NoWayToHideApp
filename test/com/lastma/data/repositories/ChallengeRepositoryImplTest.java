@@ -54,7 +54,7 @@ class ChallengeRepositoryImplTest {
         challenge.setId("1");
         challengeRepository.save(challenge);
         assertEquals(1L,challengeRepository.count());
-        challengeRepository.del("1");
+        challengeRepository.deleteById("1");
         assertEquals(0L,challengeRepository.count());
     }
 

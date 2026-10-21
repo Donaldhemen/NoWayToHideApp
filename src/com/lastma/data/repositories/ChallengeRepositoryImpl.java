@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChallengeRepositoryImpl implements ChallengeRepository {
-    private List<Challenge> challenges = new ArrayList<>();
+    private static List<Challenge> challenges = new ArrayList<>();
 
     @Override
     public long count() {
@@ -21,7 +21,7 @@ public class ChallengeRepositoryImpl implements ChallengeRepository {
     @Override
     public Challenge findById(String id) {
         for(Challenge forEachChallengeIn : challenges){
-            if(forEachChallengeIn.getId() == id){
+            if(forEachChallengeIn.getId().equals(id)){
                 return forEachChallengeIn;
             }
         }
@@ -29,9 +29,9 @@ public class ChallengeRepositoryImpl implements ChallengeRepository {
     }
 
     @Override
-    public void del(String id) {
+    public void deleteById(String id) {
         for(Challenge challenge : challenges){
-            if(challenge.getId() == id){
+            if(challenge.getId().equals(id)){
                 challenges.remove(challenge);
                 break;
             }
@@ -46,7 +46,7 @@ public class ChallengeRepositoryImpl implements ChallengeRepository {
     @Override
     public boolean existsById(String id) {
         for(Challenge forEachChallengeIn : challenges){
-            if(id.equals(forEachChallengeIn.getId())){
+            if(forEachChallengeIn.getId().equals(id)){
                 return true;
             }
         }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleRepositoryImpl implements VehicleRepository {
-    private List<Vehicle> vehicles = new ArrayList<>();
+    private static List<Vehicle> vehicles = new ArrayList<>();
 
     @Override
     public long count() {
@@ -21,7 +21,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public Vehicle findByPlateNumber(String plateNumber) {
         for(Vehicle forEachVehicleIn : vehicles){
-            if(forEachVehicleIn.getPlateNumber() == plateNumber){
+            if(plateNumber.equals(forEachVehicleIn.getPlateNumber())){
                 return forEachVehicleIn;
             }
         }
@@ -29,9 +29,9 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     }
 
     @Override
-    public void del(String plateNumber) {
+    public void deleteById(String plateNumber) {
         for(Vehicle vehicle : vehicles){
-            if(vehicle.getPlateNumber() == plateNumber){
+            if(plateNumber.equals(vehicle.getPlateNumber())){
                 vehicles.remove(vehicle);
                 break;
             }
@@ -46,7 +46,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public boolean existsByPlateNumber(String plateNumber) {
         for(Vehicle forEachVehicleIn : vehicles){
-            if(forEachVehicleIn.getPlateNumber() == plateNumber){
+            if(plateNumber.equals(forEachVehicleIn.getPlateNumber())){
                 return true;
             }
         }

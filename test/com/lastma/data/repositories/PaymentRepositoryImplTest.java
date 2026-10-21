@@ -54,7 +54,7 @@ class PaymentRepositoryImplTest {
         payment.setId("1");
         paymentRepository.save(payment);
         assertEquals(1L,paymentRepository.count());
-        paymentRepository.del("1");
+        paymentRepository.deleteById("1");
         assertEquals(0L,paymentRepository.count());
     }
 

@@ -1,5 +1,17 @@
 package com.lastma.services;
 
+import com.lastma.dtos.requests.FindOfficerRequest;
+import com.lastma.dtos.requests.RegisterOfficerRequest;
+import com.lastma.dtos.responses.FindAllOfficerResponse;
+import com.lastma.dtos.responses.FindOfficerResponse;
+import com.lastma.dtos.responses.RegisterOfficerResponse;
+
+import java.util.List;
+
 public interface OfficerService {
-    void register(String fullName, String mail);
+    RegisterOfficerResponse registerOfficer(RegisterOfficerRequest request);
+
+    FindOfficerResponse findOfficerBy(FindOfficerRequest request);
+
+    List<FindAllOfficerResponse> findAllOfficer();
 }

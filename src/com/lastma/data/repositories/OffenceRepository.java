@@ -11,7 +11,7 @@ public interface OffenceRepository {
 
     Offence findById(String id);
 
-    void del(String id);
+    void deleteById(String id);
 
     void deleteAll();
 

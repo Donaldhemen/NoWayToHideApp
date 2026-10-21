@@ -19,9 +19,9 @@ public class DriverRepositoryImpl implements DriverRepository {
     }
 
     @Override
-    public Driver findById(int id) {
+    public Driver findById(String id) {
         for(Driver forEachDriverIn : drivers){
-            if(forEachDriverIn.getId() == id){
+            if(forEachDriverIn.getId().equals(id)){
                 return forEachDriverIn;
             }
         }
@@ -29,9 +29,9 @@ public class DriverRepositoryImpl implements DriverRepository {
     }
 
     @Override
-    public void del(int id) {
+    public void deleteById(String id) {
         for(Driver driver : drivers){
-            if(driver.getId() == id){
+            if(driver.getId().equals(id)){
                 drivers.remove(driver);
                 break;
             }
@@ -44,9 +44,9 @@ public class DriverRepositoryImpl implements DriverRepository {
     }
 
     @Override
-    public boolean existsById(int id) {
+    public boolean existsById(String id) {
         for(Driver forEachDriverIn : drivers){
-            if(forEachDriverIn.getId() == id){
+            if(forEachDriverIn.getId().equals(id)){
                 return true;
             }
         }

@@ -3,16 +3,41 @@ package com.lastma.services;
 import com.lastma.data.models.Driver;
 import com.lastma.data.repositories.DriverRepository;
 import com.lastma.data.repositories.DriverRepositoryImpl;
+import com.lastma.dtos.requests.FindDriverRequest;
+import com.lastma.dtos.requests.RegisterDriverRequest;
+import com.lastma.dtos.responses.FindAllDriverResponse;
+import com.lastma.dtos.responses.FindDriverResponse;
+import com.lastma.dtos.responses.RegisterDriverResponse;
 
-public class DriverServiceImpl implements DriverService{
+import java.util.List;
 
+import static com.lastma.utils.DriverServiceMapper.*;
+
+public class DriverServiceImpl implements DriverService {
     private DriverRepository driverRepository = new DriverRepositoryImpl();
 
     @Override
-    public void register(String fullName, String mail) {
-        Driver newDriver = new Driver();
-        newDriver.setFullName(fullName);
-        newDriver.setEmail(mail);
+    public RegisterDriverResponse registerDriver(RegisterDriverRequest driverRequest) {
+        Driver newDriver = map(driverRequest);
         driverRepository.save(newDriver);
+
+        return mapRegistered(newDriver);
     }
+
+    @Override
+    public FindDriverResponse findDriverBy(FindDriverRequest request) {
+        Driver driver = driverRepository.findById(request.getDriverId());
+        validate(driver);
+
+        return mapFound(driver);
+    }
+
+    @Override
+    public List<FindAllDriverResponse> findAllDriver() {
+        List<Driver> foundDrivers = driverRepository.findAll();
+
+        return mapListOf(foundDrivers);
+    }
+
+    private void validate(Driver driver) {if(driver == null) throw new IllegalArgumentException("Driver not found");}
 }

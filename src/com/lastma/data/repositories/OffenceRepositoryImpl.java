@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OffenceRepositoryImpl implements OffenceRepository {
-    private List<Offence> offences = new ArrayList<>();
+    private static List<Offence> offences = new ArrayList<>();
 
     @Override
     public long count() {
@@ -21,7 +21,7 @@ public class OffenceRepositoryImpl implements OffenceRepository {
     @Override
     public Offence findById(String id) {
         for(Offence forEachOffenceIn : offences){
-            if(forEachOffenceIn.getId() == id){
+            if(forEachOffenceIn.getId().equals(id)){
                 return forEachOffenceIn;
             }
         }
@@ -29,9 +29,9 @@ public class OffenceRepositoryImpl implements OffenceRepository {
     }
 
     @Override
-    public void del(String id) {
+    public void deleteById(String id) {
         for(Offence offence : offences){
-            if(offence.getId() == id){
+            if(offence.getId().equals(id)){
                 offences.remove(offence);
                 break;
             }
@@ -46,7 +46,7 @@ public class OffenceRepositoryImpl implements OffenceRepository {
     @Override
     public boolean existsById(String id) {
         for(Offence forEachOffenceIn : offences){
-            if(id.equals(forEachOffenceIn.getId())){
+            if(forEachOffenceIn.getId().equals(id)){
                 return true;
             }
         }

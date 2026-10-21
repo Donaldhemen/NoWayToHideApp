@@ -19,9 +19,9 @@ public class OfficerRepositoryImpl implements OfficerRepository {
     }
 
     @Override
-    public Officer findById(int id) {
+    public Officer findById(String id) {
         for(Officer forEachOfficerIn : officers){
-            if(forEachOfficerIn.getId() == id){
+            if(forEachOfficerIn.getId().equals(id)){
                 return forEachOfficerIn;
             }
         }
@@ -29,9 +29,9 @@ public class OfficerRepositoryImpl implements OfficerRepository {
     }
 
     @Override
-    public void del(int id) {
+    public void deleteById(String id) {
         for(Officer officer : officers){
-            if(officer.getId() == id){
+            if(officer.getId().equals(id)){
                 officers.remove(officer);
                 break;
             }
@@ -44,9 +44,9 @@ public class OfficerRepositoryImpl implements OfficerRepository {
     }
 
     @Override
-    public boolean existsById(int id) {
+    public boolean existsById(String id) {
         for(Officer forEachOfficerIn : officers){
-            if(forEachOfficerIn.getId() == id){
+            if(forEachOfficerIn.getId().equals(id)){
                 return true;
             }
         }

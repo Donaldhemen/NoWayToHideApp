@@ -4,9 +4,10 @@ package com.lastma.data.models;
 public class Driver {
     private String fullName;
     private String email;
-    private int id;
+    private String id;
     private String carPlateNumber;
     private String password;
+    private String phoneNumber;
 
     public String getFullName() {
         return fullName;
@@ -24,11 +25,11 @@ public class Driver {
         this.email = email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -40,7 +41,6 @@ public class Driver {
         this.carPlateNumber = carPlateNumber;
     }
 
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -48,4 +48,14 @@ public class Driver {
     public String getPassword() {
         return password;
     }
+
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
 }

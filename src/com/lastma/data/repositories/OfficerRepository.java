@@ -9,13 +9,13 @@ public interface OfficerRepository {
 
     void save(Officer officer);
 
-    Officer findById(int id);
+    Officer findById(String id);
 
-    void del(int id);
+    void deleteById(String id);
 
     void deleteAll();
 
-    boolean existsById(int id);
+    boolean existsById(String id);
 
     List<Officer> findAll();
 }

@@ -37,24 +37,24 @@ class DriverRepositoryImplTest {
 
     @Test
     public void testThatWhenIFindById_DriverIsFound() {
-        driver.setId(1);
+        driver.setId("1");
         driverRepository.save(driver);
-        assertEquals(driver,driverRepository.findById(1));
+        assertEquals(driver,driverRepository.findById("1"));
     }
 
     @Test
     public void testThatWhenIFindByIncorrectId_ErrorIsThrown() {
-        driver.setId(1);
+        driver.setId("1");
         driverRepository.save(driver);
-        assertThrows(IllegalArgumentException.class, () -> driverRepository.findById(6));
+        assertThrows(IllegalArgumentException.class, () -> driverRepository.findById("6"));
     }
 
     @Test
     public void testThatWhenIDeleteDriverWithId_DriverIsDeletedAndCountIsZero() {
-        driver.setId(1);
+        driver.setId("1");
         driverRepository.save(driver);
         assertEquals(1L,driverRepository.count());
-        driverRepository.del(1);
+        driverRepository.deleteById("1");
         assertEquals(0L,driverRepository.count());
     }
 
@@ -71,16 +71,16 @@ class DriverRepositoryImplTest {
 
     @Test
     public void testThatIfDriverIdExists_ItIsTrue(){
-        driver.setId(1);
+        driver.setId("1");
         driverRepository.save(driver);
-        assertTrue(driverRepository.existsById(1));
+        assertTrue(driverRepository.existsById("1"));
     }
 
     @Test
     public void testThatIfDriverIdDoesNotExist_ItIsFalse(){
-        driver.setId(1);
+        driver.setId("1");
         driverRepository.save(driver);
-        assertFalse(driverRepository.existsById(2));
+        assertFalse(driverRepository.existsById("2"));
     }
 
     @Test

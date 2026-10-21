@@ -3,9 +3,10 @@
 public class Officer {
     private String fullName;
     private String email;
-    private int id;
+    private String id;
     private String officerNumber;
     private boolean active;
+    private String phoneNumber;
 
     public String getFullName() {
         return fullName;
@@ -23,11 +24,11 @@ public class Officer {
         this.email = email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -45,5 +46,13 @@ public class Officer {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

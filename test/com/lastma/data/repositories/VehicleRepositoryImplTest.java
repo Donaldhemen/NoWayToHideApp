@@ -54,7 +54,7 @@ class VehicleRepositoryImplTest {
         vehicle.setPlateNumber("1");
         vehicleRepository.save(vehicle);
         assertEquals(1L,vehicleRepository.count());
-        vehicleRepository.del("1");
+        vehicleRepository.deleteById("1");
         assertEquals(0L,vehicleRepository.count());
     }
 
